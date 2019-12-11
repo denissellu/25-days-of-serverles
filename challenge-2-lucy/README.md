@@ -2,8 +2,6 @@
 
  ![step_function](images/step-function.png)
  
- ![text_message](images/text-messages.jpg)
-
 ## The Challenge
 
 ### Lucy's Dilemma!
