@@ -9,5 +9,6 @@ def handler(event:, context:)
     pp '-'*50
   end
 
+
   { statusCode: 200, body: JSON.generate('Hello from Ruby Lambda') }
 end
