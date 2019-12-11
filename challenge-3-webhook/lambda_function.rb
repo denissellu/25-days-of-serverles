@@ -1,9 +1,7 @@
 require 'json'
 
 def handler(event:, context:)
-  # TODO: implement
-  #
-  push_events = JSON.parse(event.body)
+  push_events = JSON.parse(event['body'])
 
   push_events.commits.each do |c|
     pp '-'*50
