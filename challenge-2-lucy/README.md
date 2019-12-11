@@ -1,7 +1,8 @@
 # 25 Days of Serverles Day 2
 
  ![step_function](images/step-function.png)
- 
+  ![text_message](images/text-message.jpg)
+
 ## The Challenge
 
 ### Lucy's Dilemma!
