@@ -1,0 +1,140 @@
+{
+  "Comment": "A Hello World example of the Amazon States Language using Pass states",
+  "StartAt": "Start",
+  "States": {
+    "Start": {
+      "Comment": "start the coffee, set out 4 cups",
+      "Type": "Pass",
+      "Next": "Invoke Start"
+    },
+    "Invoke Start": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-1:106264066971:function:challenge-2-lucy:$LATEST",
+        "Payload": {
+          "Message": "Start the coffee, set out 4 cups"
+        }
+      },
+      "Next": "Wait for coffee"
+    },
+    "Wait for coffee": {
+      "Type": "Wait",
+      "Seconds": 10,
+      "Next": "Invoke First Pour"
+    },
+    "Invoke First Pour": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-1:106264066971:function:challenge-2-lucy:$LATEST",
+        "Payload": {
+          "Message": "Pour two cups"
+        }
+      },
+      "Next": "Pour First Two Cups"
+    },
+    "Pour First Two Cups": {
+      "Type": "Pass",
+      "Next": "Wait to light candles"
+    },
+    "Wait to light candles": {
+      "Type": "Wait",
+      "Seconds": 10,
+      "Next": "Light Candles"
+    },
+    "Light Candles": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-1:106264066971:function:challenge-2-lucy:$LATEST",
+        "Payload": {
+          "Message": "Light the candles"
+        }
+      },
+      "Next": "Wait To Deliver First Two Cups"
+    },
+    "Wait To Deliver First Two Cups": {
+      "Type": "Wait",
+      "Seconds": 10,
+      "Next": "Deliver First Two"
+    },
+    "Deliver First Two": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-1:106264066971:function:challenge-2-lucy:$LATEST",
+        "Payload": {
+          "Message": "Deliver the coffee to Mom and Dad"
+        }
+      },
+      "Next": "Wait To Return To Kitchen"
+    },
+    "Wait To Return To Kitchen": {
+      "Type": "Wait",
+      "Seconds": 10,
+      "Next": "Return First Two"
+    },
+    "Return First Two": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-1:106264066971:function:challenge-2-lucy:$LATEST",
+        "Payload": {
+          "Message": "Return to kitchen, fill two more cups"
+        }
+      },
+      "Next": "Wait To Relight Candles"
+    },
+    "Wait To Relight Candles": {
+      "Type": "Wait",
+      "Seconds": 10,
+      "Next": "Relight Candles"
+    },
+    "Relight Candles": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-1:106264066971:function:challenge-2-lucy:$LATEST",
+        "Payload": {
+          "Message": "Relight the candles"
+        }
+      },
+      "Next": "Wait To Deliver Last Two"
+    },
+    "Wait To Deliver Last Two": {
+      "Type": "Wait",
+      "Seconds": 10,
+      "Next": "Deliver Last Two"
+    },
+    "Deliver Last Two": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-1:106264066971:function:challenge-2-lucy:$LATEST",
+        "Payload": {
+          "Message": "Deliver the coffee to Sister and Brother"
+        }
+      },
+      "Next": "Wait To Return Last Two"
+    },
+    "Wait To Return Last Two": {
+      "Type": "Wait",
+      "Seconds": 10,
+      "Next": "Return Last Two"
+    },
+    "Return Last Two": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-1:106264066971:function:challenge-2-lucy:$LATEST",
+        "Payload": {
+          "Message": "Return to kitchen, take a break!"
+        }
+      },
+      "End": true
+    }
+  }
+}
+
+
